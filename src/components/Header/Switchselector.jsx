@@ -6,7 +6,7 @@ const Switchselector = ({tfilter,Obj,farr}) => {
         farr[tfilter][Obj]=!farr[tfilter][Obj];
         let tex=""
         let setfil=false;
-        Object.entries(farr).forEach(([key, value]) => {
+        Object.entries(farr).forEach(([key]) => {
             
             Object.entries(farr[key]).forEach(([skey, svalue]) => {
                 //console.log(` ${key} - ${skey} - ${svalue}`)

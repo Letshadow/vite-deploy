@@ -7,29 +7,12 @@ const apiUrl = `https://ourspace.up.railway.app/api/BD/`
 
 function Header() {
 
-    const colorg = [
-        "White",
-        "Tan",
-        "Turquoise",
-        "GreenYellow",
-        "yellow",
-        "Plum",
-        "Gold",
-        "LightSalmon",
-        "Pink",
-        "IndianRed",
-        "Brown",
-        "Navy",
-        "DarkCyan"
-    ];
-
     let Lfilterbuttons={};
     let Lfilters=["Skills","Topics"]
 
     let Lusers={}; //Lista Usuarios
-    let Eusers=[];
-    let crdact="";//card actual
 
+    
     
     function hoverchact(e,Obj){
         let divtarget=[];
@@ -128,9 +111,7 @@ function Header() {
         }
     }
     
-    //Utilidades
-    let checker = arr => arr.some(v => v === true);
-    
+   
     function newcard(name,proyects,skills){
             const crdact={
                 name:name,
@@ -176,16 +157,10 @@ function Header() {
                         "skills": res.data[i].skills
                     };
                 }
-                let Obj={};
-                let aux={}
+           
+
                 Object.keys(Lusers).forEach(key => {
                     LObject.innerHTML+=newcard(key,Lusers[key].proyects,Lusers[key].skills);
-                    
-                    Obj={
-                        name:key,
-                        proyects:Lusers[key].proyects,
-                        skills:Lusers[key].skills  
-                    }
                 });
 
                 let cardsArray = document.querySelectorAll(".hoverchcard");
@@ -240,7 +215,6 @@ function Header() {
                                         };
                                     }
                                     
-                                    let Obj={};
                                     let aux=Object.keys(Lusers);
                                     console.log("HABER -.-")
                                     console.log(aux)
@@ -248,11 +222,7 @@ function Header() {
                                     for (let i = 0; i < aux.length; i++) {
 
                                         LObject.innerHTML+=newcard(aux[i],Lusers[aux[i]].proyects,Lusers[aux[i]].skills);
-                                        Obj={
-                                            name:aux[i],
-                                            proyects:Lusers[aux[i]].proyects,
-                                            skills:Lusers[aux[i]].skills  
-                                        }
+                                        
                                         console.log("KEY INCLIDA ::"+aux[i])
                                     }
 
@@ -286,16 +256,8 @@ function Header() {
                             "proyects": res.data.proyects,
                             "skills": res.data.skills
                         };
-                        let Obj={};
-                        let aux={}
                         Object.keys(Lusers).forEach(key => {
                             LObject.innerHTML+=newcard(key,Lusers[key].proyects,Lusers[key].skills);
-                            
-                            Obj={
-                                name:key,
-                                proyects:Lusers[key].proyects,
-                                skills:Lusers[key].skills  
-                            }
                         });
 
                         let cardsArray = document.querySelectorAll(".hoverchcard");
